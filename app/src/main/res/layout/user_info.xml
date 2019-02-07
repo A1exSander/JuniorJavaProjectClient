@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/textAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Age"
+        app:layout_constraintEnd_toStartOf="@+id/infoAge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textUserInfo" />
+
+    <EditText
+        android:id="@+id/textUserInfo"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="92dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="User info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/textHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Height"
+        app:layout_constraintEnd_toStartOf="@+id/infoHeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAge" />
+
+    <EditText
+        android:id="@+id/textWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Weight"
+        app:layout_constraintEnd_toStartOf="@+id/infoWeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textHeight" />
+
+    <EditText
+        android:id="@+id/textSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Sex"
+        app:layout_constraintEnd_toStartOf="@+id/infoGoalEnergy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textWeight" />
+
+    <EditText
+        android:id="@+id/textGoalEnergy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:text="Goal energy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textSex" />
+
+    <EditText
+        android:id="@+id/textGoalProtein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Goal protein"
+        app:layout_constraintEnd_toStartOf="@+id/infoGoalProtein"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGoalEnergy" />
+
+    <EditText
+        android:id="@+id/textGoalFat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Goal fat"
+        app:layout_constraintEnd_toStartOf="@+id/infoGoalFat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGoalProtein" />
+
+    <EditText
+        android:id="@+id/textGoalCarbohydrates2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Goal carbohydrates"
+        app:layout_constraintEnd_toStartOf="@+id/infoGoalCarbohydrates"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGoalFat" />
+
+    <EditText
+        android:id="@+id/infoAge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="71dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textAge"
+        app:layout_constraintTop_toTopOf="@+id/textAge" />
+
+    <EditText
+        android:id="@+id/infoHeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="71dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textHeight"
+        app:layout_constraintTop_toBottomOf="@+id/infoAge" />
+
+    <EditText
+        android:id="@+id/infoWeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="71dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textWeight"
+        app:layout_constraintTop_toBottomOf="@+id/infoHeight" />
+
+    <EditText
+        android:id="@+id/infoSex"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/infoWeight"
+        app:layout_constraintStart_toStartOf="@+id/infoWeight"
+        app:layout_constraintTop_toBottomOf="@+id/infoWeight" />
+
+    <EditText
+        android:id="@+id/infoGoalEnergy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="71dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textSex"
+        app:layout_constraintTop_toTopOf="@+id/textGoalEnergy" />
+
+    <EditText
+        android:id="@+id/infoGoalProtein"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="71dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textGoalProtein"
+        app:layout_constraintTop_toBottomOf="@+id/infoGoalEnergy" />
+
+    <EditText
+        android:id="@+id/infoGoalFat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="71dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textGoalFat"
+        app:layout_constraintTop_toBottomOf="@+id/infoGoalProtein" />
+
+    <EditText
+        android:id="@+id/infoGoalCarbohydrates"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="71dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textGoalCarbohydrates2"
+        app:layout_constraintTop_toBottomOf="@+id/infoGoalFat" />
+
+    <Button
+        android:id="@+id/editInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="27dp"
+        android:text="Edit"
+        app:layout_constraintBottom_toTopOf="@+id/infoToDay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGoalCarbohydrates2" />
+
+    <Button
+        android:id="@+id/changePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="Change password"
+        app:layout_constraintBottom_toTopOf="@+id/infoToDayDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infoGoalCarbohydrates"
+        app:layout_constraintVertical_bias="0.434" />
+
+    <Button
+        android:id="@+id/infoToDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="1dp"
+        android:text="Day Info"
+        app:layout_constraintBaseline_toBaselineOf="@+id/infoToDayDetails"
+        app:layout_constraintEnd_toStartOf="@+id/infoToDayDetails"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/infoToDayDetails"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Day Details"
+        app:layout_constraintBaseline_toBaselineOf="@+id/infoToInfo"
+        app:layout_constraintEnd_toStartOf="@+id/infoToInfo"
+        app:layout_constraintStart_toEndOf="@+id/infoToDay" />
+
+    <Button
+        android:id="@+id/infoToInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="3dp"
+        android:text="User Info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/infoToDayDetails" />
+
+</android.support.constraint.ConstraintLayout>
