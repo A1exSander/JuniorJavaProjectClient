@@ -58,14 +58,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textHeight" />
 
     <EditText
-        android:id="@+id/textSex"
+        android:id="@+id/textGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Sex"
+        android:text="Gender"
         app:layout_constraintEnd_toStartOf="@+id/infoGoalEnergy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textWeight" />
@@ -79,7 +79,7 @@
         android:ems="10"
         android:text="Goal energy"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textSex" />
+        app:layout_constraintTop_toTopOf="@+id/textGender" />
 
     <EditText
         android:id="@+id/textGoalProtein"
@@ -101,7 +101,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:text="Goal fat"
         app:layout_constraintEnd_toStartOf="@+id/infoGoalFat"
         app:layout_constraintStart_toStartOf="parent"
@@ -171,7 +170,7 @@
         android:ems="10"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textSex"
+        app:layout_constraintStart_toEndOf="@+id/textGender"
         app:layout_constraintTop_toTopOf="@+id/textGoalEnergy" />
 
     <EditText

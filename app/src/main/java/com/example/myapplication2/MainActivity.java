@@ -16,9 +16,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         final Button loginButton = findViewById(R.id.LoginButton);
         final Button registerButton = findViewById(R.id.RegisterButton);
+        final Button addIngredientButton = findViewById(R.id.AddIngredientButton);
 
         loginButton.setOnClickListener(this);
         registerButton.setOnClickListener(this);
+        addIngredientButton.setOnClickListener(this);
     }
 
 
@@ -33,6 +35,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent register = new Intent(this, RegisterScreenActivity.class);
                 startActivity(register);
                 break;
+            case R.id.AddIngredientButton:
+                Intent addIngredient = new Intent(this, NewIngredientActivity.class);
+                startActivity(addIngredient);
+                break;
+
         }
     }
 

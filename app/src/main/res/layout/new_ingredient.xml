@@ -1,17 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
+    <EditText
+        android:id="@+id/IngredientFat"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Add Ingredient"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="144dp" />
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Fat*"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/IngredientProtein"
+        app:layout_constraintTop_toTopOf="@+id/IngredientProtein" />
+
+    <EditText
+        android:id="@+id/IngredientCarbohydrates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Carbohydrates*"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/IngredientFat"
+        app:layout_constraintTop_toTopOf="@+id/IngredientFat" />
+
+    <EditText
+        android:id="@+id/IngredientSugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Sugar"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/IngredientCarbohydrates"
+        app:layout_constraintTop_toTopOf="@+id/IngredientCarbohydrates" />
+
+    <EditText
+        android:id="@+id/IngredientFatSaturated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Saturated fat"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/IngredientSugar"
+        app:layout_constraintTop_toTopOf="@+id/IngredientSugar" />
+
+    <EditText
+        android:id="@+id/IngredientFatPolyUnsaturated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Polyunsaturated fat"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/IngredientFatSaturated"
+        app:layout_constraintTop_toTopOf="@+id/IngredientFatSaturated" />
+
+    <EditText
+        android:id="@+id/IngredientFatMonoUnsaturated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Monounsaturated fat"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/IngredientFatPolyUnsaturated"
+        app:layout_constraintTop_toTopOf="@+id/IngredientFatPolyUnsaturated" />
+
+    <EditText
+        android:id="@+id/IngredientGlycemicIndex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Glycemic index"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/IngredientFatMonoUnsaturated"
+        app:layout_constraintTop_toTopOf="@+id/IngredientFatMonoUnsaturated" />
+
+    <EditText
+        android:id="@+id/IngredientName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="Ingredient name*"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ingredientEnergy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Energy*"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/IngredientName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/IngredientProtein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Protein*"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/ingredientEnergy"
+        app:layout_constraintTop_toTopOf="@+id/ingredientEnergy" />
+
+    <Button
+        android:id="@+id/IngredientAddButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IngredientGlycemicIndex" />
+
 </android.support.constraint.ConstraintLayout>

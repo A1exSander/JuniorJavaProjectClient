@@ -22,6 +22,10 @@
             android:name=".RegisterScreenActivity"
             android:parentActivityName=".MainActivity"
             android:label="Registration"></activity>
+        <activity
+            android:name=".NewIngredientActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="New ingredient"></activity>
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.example.myapplication2.MainActivity" />
