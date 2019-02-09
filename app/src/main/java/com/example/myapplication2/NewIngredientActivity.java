@@ -3,12 +3,14 @@ package com.example.myapplication2;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.myapplication2.entity.Ingredient;
+import com.example.myapplication2.filter.MinMaxFilterDouble;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -19,9 +21,11 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static com.example.myapplication2.StaticValues.JSON;
+
+
 public class NewIngredientActivity extends Activity {
-    public static final MediaType JSON
-            = MediaType.get("application/json; charset=utf-8");
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +35,23 @@ public class NewIngredientActivity extends Activity {
         final Button addButton = findViewById(R.id.IngredientAddButton);
         final EditText ingredientName = findViewById(R.id.IngredientName);
         final EditText ingredientEnergy = findViewById(R.id.ingredientEnergy);
+        ingredientEnergy.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "1000")});
         final EditText ingredientProtein = findViewById(R.id.IngredientProtein);
+        ingredientProtein.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
         final EditText ingredientFat = findViewById(R.id.IngredientFat);
+        ingredientFat.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
         final EditText ingredientCarbohydrates = findViewById(R.id.IngredientCarbohydrates);
+        ingredientCarbohydrates.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
         final EditText ingredientSugar = findViewById(R.id.IngredientSugar);
+        ingredientSugar.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
         final EditText ingredientFatSaturated = findViewById(R.id.IngredientFatSaturated);
-        final EditText IngredientFatPolyUnsaturated = findViewById(R.id.IngredientFatPolyUnsaturated);
+        ingredientFatSaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        final EditText ingredientFatPolyUnsaturated = findViewById(R.id.IngredientFatPolyUnsaturated);
+        ingredientFatPolyUnsaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
         final EditText ingredientFatMonoUnsaturated = findViewById(R.id.IngredientFatMonoUnsaturated);
-        final EditText IngredientGlycemicIndex = findViewById(R.id.IngredientGlycemicIndex);
+        ingredientFatMonoUnsaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        final EditText ingredientGlycemicIndex = findViewById(R.id.IngredientGlycemicIndex);
+        ingredientGlycemicIndex.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,9 +66,9 @@ public class NewIngredientActivity extends Activity {
                                         Double.parseDouble(ingredientCarbohydrates.getText().toString()));
                         if(!ingredientSugar.getText().toString().equals(""))ingredientBuilder.setSugar(Double.parseDouble(ingredientSugar.getText().toString()));
                         if(!ingredientFatSaturated.getText().toString().equals(""))ingredientBuilder.setFatSaturated(Double.parseDouble(ingredientFatSaturated.getText().toString()));
-                        if(!IngredientFatPolyUnsaturated.getText().toString().equals(""))ingredientBuilder.setFatPolyUnsaturated(Double.parseDouble(IngredientFatPolyUnsaturated.getText().toString()));
+                        if(!ingredientFatPolyUnsaturated.getText().toString().equals(""))ingredientBuilder.setFatPolyUnsaturated(Double.parseDouble(ingredientFatPolyUnsaturated.getText().toString()));
                         if(!ingredientFatMonoUnsaturated.getText().toString().equals(""))ingredientBuilder.setFatMonoUnsaturated(Double.parseDouble(ingredientFatMonoUnsaturated.getText().toString()));
-                        if(!IngredientGlycemicIndex.getText().toString().equals(""))ingredientBuilder.setGlycemicIndex(Double.parseDouble(IngredientGlycemicIndex.getText().toString()));
+                        if(!ingredientGlycemicIndex.getText().toString().equals(""))ingredientBuilder.setGlycemicIndex(Double.parseDouble(ingredientGlycemicIndex.getText().toString()));
                         Ingredient ingredient = new Ingredient(ingredientBuilder);
 
                         OkHttpClient client = new OkHttpClient();

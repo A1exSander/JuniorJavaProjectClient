@@ -3,6 +3,7 @@ package com.example.myapplication2;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,10 +12,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.myapplication2.entity.User;
+import com.example.myapplication2.filter.MinMaxFilterDouble;
+import com.example.myapplication2.filter.MinMaxFilterInt;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import okhttp3.MediaType;
@@ -23,20 +30,23 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class RegisterScreenActivity extends Activity {
-    public static final MediaType JSON
-            = MediaType.get("application/json; charset=utf-8");
+import static com.example.myapplication2.StaticValues.JSON;
 
+public class RegisterScreenActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration);
         final Button regApply = findViewById(R.id.ApplyReg);
         final EditText login = findViewById(R.id.UserLogin);
         final EditText password = findViewById(R.id.UserPassword);
         final EditText weight = findViewById(R.id.UserWeight);
+        weight.setFilters(new InputFilter[]{ new MinMaxFilterDouble("1", "300")});
         final EditText height = findViewById(R.id.UserHeight);
+        height.setFilters(new InputFilter[]{ new MinMaxFilterDouble("1", "250")});
         final EditText age = findViewById(R.id.UserAge);
+        height.setFilters(new InputFilter[]{ new MinMaxFilterInt("1", "150")});
 
         List<String> genderOptions =  new ArrayList<String>();
         genderOptions.add("MALE");

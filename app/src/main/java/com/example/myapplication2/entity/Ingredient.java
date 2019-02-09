@@ -11,6 +11,8 @@ public class Ingredient {
     private final double fatPolyUnsaturated;
     private final double fatMonoUnsaturated;
     private final double glycemicIndex;
+    private final double glycemicLoad;
+
 
     public Ingredient(IngredientBuilder builder){
         this.ingredientName = builder.ingredientName;
@@ -23,6 +25,7 @@ public class Ingredient {
         this.fatPolyUnsaturated = builder.fatPolyUnsaturated;
         this.fatMonoUnsaturated = builder.fatMonoUnsaturated;
         this.glycemicIndex = builder.glycemicIndex;
+        this.glycemicLoad = builder.glycemicLoad;
     }
 
     public String getIngredientName() {
@@ -65,6 +68,10 @@ public class Ingredient {
         return glycemicIndex;
     }
 
+    public double getGlycemicLoad() {
+        return glycemicLoad;
+    }
+
     public static class IngredientBuilder {
         private final String ingredientName;
         private final double energy;
@@ -76,6 +83,7 @@ public class Ingredient {
         private double fatPolyUnsaturated = 0;
         private double fatMonoUnsaturated = 0;
         private double glycemicIndex = 0;
+        private double glycemicLoad = 0;
 
         public IngredientBuilder(String ingredientName, double energy, double protein, double fat, double carbohydrates) {
             this.energy = energy;
@@ -104,6 +112,10 @@ public class Ingredient {
 
         public void setGlycemicIndex(double glycemicIndex) {
             this.glycemicIndex = glycemicIndex;
+        }
+
+        public void setGlycemicLoad(double glycemicLoad) {
+            this.glycemicLoad = glycemicLoad;
         }
 
         public Ingredient build(){

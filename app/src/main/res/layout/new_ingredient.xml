@@ -83,6 +83,17 @@
         app:layout_constraintTop_toTopOf="@+id/IngredientFatMonoUnsaturated" />
 
     <EditText
+        android:id="@+id/ingredientGlycemicLoad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:ems="10"
+        android:hint="Glycemic load"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/IngredientFatMonoUnsaturated"
+        app:layout_constraintTop_toTopOf="@+id/IngredientFatMonoUnsaturated" />
+
+    <EditText
         android:id="@+id/IngredientName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -119,9 +130,10 @@
         android:id="@+id/IngredientAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="72dp"
         android:text="Add"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/IngredientGlycemicIndex" />
 
