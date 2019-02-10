@@ -1,6 +1,7 @@
 package com.example.myapplication2.entity;
 
 public class User {
+    private int id;
     private String login;
     private String password;
     private double weight;
@@ -8,6 +9,13 @@ public class User {
     private int age;
     private String gender;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getGender() {
         return gender;

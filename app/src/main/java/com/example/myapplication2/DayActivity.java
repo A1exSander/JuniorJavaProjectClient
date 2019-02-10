@@ -10,5 +10,6 @@ public class DayActivity extends Activity {
         setContentView(R.layout.day_activity);
 
 
+
     }
 }
