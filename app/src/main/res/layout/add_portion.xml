@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <ScrollView
+        android:id="@+id/addPortionView"
         android:layout_width="395dp"
         android:layout_height="587dp"
         android:layout_marginStart="8dp"
@@ -23,4 +24,5 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

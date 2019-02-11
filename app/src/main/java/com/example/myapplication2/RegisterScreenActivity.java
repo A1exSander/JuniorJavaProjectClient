@@ -1,6 +1,9 @@
 package com.example.myapplication2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.InputFilter;
@@ -17,14 +20,9 @@ import com.example.myapplication2.filter.MinMaxFilterInt;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -94,11 +92,25 @@ public class RegisterScreenActivity extends Activity {
                                 .post(body)
                                 .build();
                         try (Response response = client.newCall(request).execute()) {
-                            System.out.println(response.body().string());
+                            Log.i("WWW", response.body().string());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-
+                        AlertDialog.Builder builder = new AlertDialog.Builder(RegisterScreenActivity.this);
+                        builder.setTitle("Success")
+                                .setMessage("You have successfully registered")
+                                .setCancelable(false)
+                                .setNegativeButton("OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                dialog.cancel();
+                                            }
+                                        });
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                        Log.i("WWW", "Login failed");
+                        Intent mainActivity = new Intent(RegisterScreenActivity.this, MainActivity.class);
+                        startActivity(mainActivity);
                         break;
                 }
 

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.StrictMode;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,12 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.myapplication2.entity.User;
+import com.example.myapplication2.entity.dialog.LoginFailedDialog;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
-import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.LoginButton:
+
+
                 final EditText login = findViewById(R.id.LoginField);
                 final EditText password = findViewById(R.id.PasswordField);
 
@@ -74,22 +76,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .post(body)
                         .build();
 
+
                 try (Response response = client.newCall(request).execute()) {
                     Log.i("WWW", response.body().string());
                     if (response.code()==500)  {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                        builder.setTitle("Alert")
-                                .setMessage("Login or password is incorrect")
-                                .setCancelable(false)
-                                .setNegativeButton("OK",
-                                        new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int id) {
-                                                dialog.cancel();
-                                            }
-                                        });
-                        AlertDialog alert = builder.create();
-                        alert.show();
-                        Log.i("WWW", "Failed login");
+                        FragmentManager manager = getSupportFragmentManager();
+                        LoginFailedDialog loginFailedDialog = new LoginFailedDialog();
+                        loginFailedDialog.show(manager, "login failed");
                     } else {
                         Intent dayActivity = new Intent(this, DayActivity.class);
                         startActivity(dayActivity);
@@ -97,31 +90,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-//                client.newCall(request).enqueue(new Callback() {
-//                    public void onFailure(Call call, IOException e) {
-//                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//                        builder.setTitle("Alert")
-//                                .setMessage("Login or password is incorrect")
-//                                .setCancelable(false)
-//                                .setNegativeButton("OK",
-//                                        new DialogInterface.OnClickListener() {
-//                                            public void onClick(DialogInterface dialog, int id) {
-//                                                dialog.cancel();
-//                                            }
-//                                        });
-//                        AlertDialog alert = builder.create();
-//                        alert.show();
-//                        Log.i("Login attempt", e.printStackTrace().);
-//                    }
-//
-//                    public void onResponse(Call call, Response response)
-//                            throws IOException {
-//                        String responseBody = response.body().string();
-//                        System.out.println(responseBody);
-//
-//                    }
-//                });
 
                 break;
             case R.id.RegisterButton:

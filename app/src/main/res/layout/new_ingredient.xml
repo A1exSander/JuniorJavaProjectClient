@@ -83,7 +83,7 @@
         app:layout_constraintTop_toTopOf="@+id/IngredientFatMonoUnsaturated" />
 
     <EditText
-        android:id="@+id/ingredientGlycemicLoad"
+        android:id="@+id/IngredientGlycemicLoad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"

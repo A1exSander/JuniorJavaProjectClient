@@ -26,6 +26,16 @@
             android:name=".NewIngredientActivity"
             android:parentActivityName=".MainActivity"
             android:label="New ingredient"></activity>
+        <activity
+            android:name=".DayActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Ration"
+            ></activity>
+        <activity
+            android:name=".AddPortionActivity"
+            android:parentActivityName=".DayActivity"
+            android:label="AddPortion"
+            ></activity>
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.example.myapplication2.MainActivity" />

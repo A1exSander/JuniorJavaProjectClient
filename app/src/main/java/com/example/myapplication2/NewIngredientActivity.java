@@ -15,7 +15,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -52,6 +51,8 @@ public class NewIngredientActivity extends Activity {
         ingredientFatMonoUnsaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
         final EditText ingredientGlycemicIndex = findViewById(R.id.IngredientGlycemicIndex);
         ingredientGlycemicIndex.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        final EditText ingredientGlycemicLoad = findViewById(R.id.IngredientGlycemicLoad);
+        ingredientGlycemicLoad.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +70,7 @@ public class NewIngredientActivity extends Activity {
                         if(!ingredientFatPolyUnsaturated.getText().toString().equals(""))ingredientBuilder.setFatPolyUnsaturated(Double.parseDouble(ingredientFatPolyUnsaturated.getText().toString()));
                         if(!ingredientFatMonoUnsaturated.getText().toString().equals(""))ingredientBuilder.setFatMonoUnsaturated(Double.parseDouble(ingredientFatMonoUnsaturated.getText().toString()));
                         if(!ingredientGlycemicIndex.getText().toString().equals(""))ingredientBuilder.setGlycemicIndex(Double.parseDouble(ingredientGlycemicIndex.getText().toString()));
+                        if(!ingredientGlycemicLoad.getText().toString().equals(""))ingredientBuilder.setGlycemicLoad(Double.parseDouble(ingredientGlycemicLoad.getText().toString()));
                         Ingredient ingredient = new Ingredient(ingredientBuilder);
 
                         OkHttpClient client = new OkHttpClient();
