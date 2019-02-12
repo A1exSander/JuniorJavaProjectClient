@@ -1,7 +1,7 @@
 package com.example.myapplication2.entity;
 
-public class ReveivedIngredient {
-    private int id;
+public class ReceivedIngredient {
+    private int ingredientId;
     private String ingredientName;
     private double energy;
     private double protein;
@@ -14,12 +14,12 @@ public class ReveivedIngredient {
     private double glycemicIndex;
     private double glycemicLoad;
 
-    public int getId() {
-        return id;
+    public int getIngredientId() {
+        return ingredientId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIngredientId(int ingredientId) {
+        this.ingredientId = ingredientId;
     }
 
     public String getIngredientName() {
@@ -108,5 +108,23 @@ public class ReveivedIngredient {
 
     public void setGlycemicLoad(double glycemicLoad) {
         this.glycemicLoad = glycemicLoad;
+    }
+
+    @Override
+    public String toString() {
+        return "ReceivedIngredient{" +
+                "ingredientId=" + ingredientId +
+                ", ingredientName='" + ingredientName + '\'' +
+                ", energy=" + energy +
+                ", protein=" + protein +
+                ", fat=" + fat +
+                ", carbohydrates=" + carbohydrates +
+                ", sugar=" + sugar +
+                ", fatSaturated=" + fatSaturated +
+                ", fatPolyUnsaturated=" + fatPolyUnsaturated +
+                ", fatMonoUnsaturated=" + fatMonoUnsaturated +
+                ", glycemicIndex=" + glycemicIndex +
+                ", glycemicLoad=" + glycemicLoad +
+                '}';
     }
 }

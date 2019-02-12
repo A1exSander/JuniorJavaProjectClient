@@ -1,12 +1,10 @@
 package com.example.myapplication2;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +12,7 @@ import android.widget.EditText;
 
 import com.example.myapplication2.entity.User;
 import com.example.myapplication2.entity.dialog.LoginFailedDialog;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -24,6 +23,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 import static com.example.myapplication2.StaticValues.JSON;
+import static com.example.myapplication2.StaticValues.userThis;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -78,12 +78,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 try (Response response = client.newCall(request).execute()) {
-                    Log.i("WWW", response.body().string());
+                    String responseBody = response.body().string();
+                    Log.i("WWW", responseBody);
                     if (response.code()==500)  {
                         FragmentManager manager = getSupportFragmentManager();
                         LoginFailedDialog loginFailedDialog = new LoginFailedDialog();
                         loginFailedDialog.show(manager, "login failed");
                     } else {
+                        userThis = mapper.readValue(responseBody, new TypeReference<User>(){});
+                        System.out.println(userThis.toString());
                         Intent dayActivity = new Intent(this, DayActivity.class);
                         startActivity(dayActivity);
                     }

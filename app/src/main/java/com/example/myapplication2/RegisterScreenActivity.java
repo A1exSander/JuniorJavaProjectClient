@@ -40,11 +40,11 @@ public class RegisterScreenActivity extends Activity {
         final EditText login = findViewById(R.id.UserLogin);
         final EditText password = findViewById(R.id.UserPassword);
         final EditText weight = findViewById(R.id.UserWeight);
-        weight.setFilters(new InputFilter[]{ new MinMaxFilterDouble("1", "300")});
+        weight.setFilters(new InputFilter[]{ new MinMaxFilterDouble(1, 300)});
         final EditText height = findViewById(R.id.UserHeight);
-        height.setFilters(new InputFilter[]{ new MinMaxFilterDouble("1", "250")});
+        height.setFilters(new InputFilter[]{ new MinMaxFilterDouble(1, 250)});
         final EditText age = findViewById(R.id.UserAge);
-        height.setFilters(new InputFilter[]{ new MinMaxFilterInt("1", "150")});
+        height.setFilters(new InputFilter[]{ new MinMaxFilterInt(1, 150)});
 
         List<String> genderOptions =  new ArrayList<String>();
         genderOptions.add("MALE");
@@ -106,9 +106,6 @@ public class RegisterScreenActivity extends Activity {
                                                 dialog.cancel();
                                             }
                                         });
-                        AlertDialog alert = builder.create();
-                        alert.show();
-                        Log.i("WWW", "Login failed");
                         Intent mainActivity = new Intent(RegisterScreenActivity.this, MainActivity.class);
                         startActivity(mainActivity);
                         break;

@@ -34,25 +34,25 @@ public class NewIngredientActivity extends Activity {
         final Button addButton = findViewById(R.id.IngredientAddButton);
         final EditText ingredientName = findViewById(R.id.IngredientName);
         final EditText ingredientEnergy = findViewById(R.id.ingredientEnergy);
-        ingredientEnergy.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "1000")});
+        ingredientEnergy.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 1000)});
         final EditText ingredientProtein = findViewById(R.id.IngredientProtein);
-        ingredientProtein.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        ingredientProtein.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
         final EditText ingredientFat = findViewById(R.id.IngredientFat);
-        ingredientFat.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        ingredientFat.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
         final EditText ingredientCarbohydrates = findViewById(R.id.IngredientCarbohydrates);
-        ingredientCarbohydrates.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        ingredientCarbohydrates.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
         final EditText ingredientSugar = findViewById(R.id.IngredientSugar);
-        ingredientSugar.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        ingredientSugar.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
         final EditText ingredientFatSaturated = findViewById(R.id.IngredientFatSaturated);
-        ingredientFatSaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        ingredientFatSaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
         final EditText ingredientFatPolyUnsaturated = findViewById(R.id.IngredientFatPolyUnsaturated);
-        ingredientFatPolyUnsaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        ingredientFatPolyUnsaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
         final EditText ingredientFatMonoUnsaturated = findViewById(R.id.IngredientFatMonoUnsaturated);
-        ingredientFatMonoUnsaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        ingredientFatMonoUnsaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
         final EditText ingredientGlycemicIndex = findViewById(R.id.IngredientGlycemicIndex);
-        ingredientGlycemicIndex.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        ingredientGlycemicIndex.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
         final EditText ingredientGlycemicLoad = findViewById(R.id.IngredientGlycemicLoad);
-        ingredientGlycemicLoad.setFilters(new InputFilter[]{ new MinMaxFilterDouble("0", "100")});
+        ingredientGlycemicLoad.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override

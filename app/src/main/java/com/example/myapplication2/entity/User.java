@@ -1,20 +1,23 @@
 package com.example.myapplication2.entity;
 
 public class User {
-    private int id;
+    private int userId;
     private String login;
     private String password;
     private double weight;
     private double height;
     private int age;
     private String gender;
+    private int goalEnergy;
+    private double bmr;
+    private double imt;
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getGender() {
@@ -65,15 +68,43 @@ public class User {
         this.age = age;
     }
 
+    public int getGoalEnergy() {
+        return goalEnergy;
+    }
+
+    public void setGoalEnergy(int goalEnergy) {
+        this.goalEnergy = goalEnergy;
+    }
+
+    public double getBmr() {
+        return bmr;
+    }
+
+    public void setBmr(double bmr) {
+        this.bmr = bmr;
+    }
+
+    public double getImt() {
+        return imt;
+    }
+
+    public void setImt(double imt) {
+        this.imt = imt;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "login='" + login + '\'' +
+                "id=" + userId +
+                ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", weight=" + weight +
                 ", height=" + height +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
+                ", goalEnergy=" + goalEnergy +
+                ", bmr=" + bmr +
+                ", imt=" + imt +
                 '}';
     }
 }
