@@ -1,16 +1,13 @@
-package com.example.myapplication2.entity.dialog;
+package com.example.myapplication2.dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDialogFragment;
-import android.util.Log;
 
 import com.example.myapplication2.DayActivity;
-import com.example.myapplication2.MainActivity;
 
 public class SetBrDinSupDialog extends AppCompatDialogFragment {
     String brDinSup;
@@ -22,7 +19,7 @@ public class SetBrDinSupDialog extends AppCompatDialogFragment {
         builder.setTitle("Chose one")
                 .setItems(optionsArray, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        ((DayActivity)getActivity()).createRationTemplate(optionsArray[which]);
+                        ((DayActivity)getActivity()).createPortionTemplate(optionsArray[which]);
                         System.out.println(optionsArray[which]);
 
                     }

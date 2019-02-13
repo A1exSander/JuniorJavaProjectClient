@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.myapplication2.entity.Ingredient;
-import com.example.myapplication2.filter.MinMaxFilterDouble;
+import com.example.myapplication2.filter.DecimalInputFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -34,25 +34,25 @@ public class NewIngredientActivity extends Activity {
         final Button addButton = findViewById(R.id.IngredientAddButton);
         final EditText ingredientName = findViewById(R.id.IngredientName);
         final EditText ingredientEnergy = findViewById(R.id.ingredientEnergy);
-        ingredientEnergy.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 1000)});
+        ingredientEnergy.setFilters(new InputFilter[]{ new DecimalInputFilter()});
         final EditText ingredientProtein = findViewById(R.id.IngredientProtein);
-        ingredientProtein.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
+        ingredientProtein.setFilters(new InputFilter[]{ new DecimalInputFilter()});
         final EditText ingredientFat = findViewById(R.id.IngredientFat);
-        ingredientFat.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
+        ingredientFat.setFilters(new InputFilter[]{ new DecimalInputFilter()});
         final EditText ingredientCarbohydrates = findViewById(R.id.IngredientCarbohydrates);
-        ingredientCarbohydrates.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
+        ingredientCarbohydrates.setFilters(new InputFilter[]{ new DecimalInputFilter()});
         final EditText ingredientSugar = findViewById(R.id.IngredientSugar);
-        ingredientSugar.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
+        ingredientSugar.setFilters(new InputFilter[]{ new DecimalInputFilter()});
         final EditText ingredientFatSaturated = findViewById(R.id.IngredientFatSaturated);
-        ingredientFatSaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
+        ingredientFatSaturated.setFilters(new InputFilter[]{ new DecimalInputFilter()});
         final EditText ingredientFatPolyUnsaturated = findViewById(R.id.IngredientFatPolyUnsaturated);
-        ingredientFatPolyUnsaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
+        ingredientFatPolyUnsaturated.setFilters(new InputFilter[]{ new DecimalInputFilter()});
         final EditText ingredientFatMonoUnsaturated = findViewById(R.id.IngredientFatMonoUnsaturated);
-        ingredientFatMonoUnsaturated.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
+        ingredientFatMonoUnsaturated.setFilters(new InputFilter[]{ new DecimalInputFilter()});
         final EditText ingredientGlycemicIndex = findViewById(R.id.IngredientGlycemicIndex);
-        ingredientGlycemicIndex.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
+        ingredientGlycemicIndex.setFilters(new InputFilter[]{ new DecimalInputFilter()});
         final EditText ingredientGlycemicLoad = findViewById(R.id.IngredientGlycemicLoad);
-        ingredientGlycemicLoad.setFilters(new InputFilter[]{ new MinMaxFilterDouble(0, 100)});
+        ingredientGlycemicLoad.setFilters(new InputFilter[]{ new DecimalInputFilter()});
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +93,7 @@ public class NewIngredientActivity extends Activity {
                                 .post(body)
                                 .build();
                         try (Response response = client.newCall(request).execute()) {
-                            System.out.println(response.body().string());
+                            Log.i("WWW", response.body().string());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

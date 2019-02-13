@@ -1,16 +1,18 @@
 package com.example.myapplication2;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.myapplication2.entity.Ration;
+import com.example.myapplication2.dialog.SetMassDialog;
+import com.example.myapplication2.entity.Portion;
 import com.example.myapplication2.entity.ReceivedIngredient;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,12 +22,52 @@ import java.util.List;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static com.example.myapplication2.StaticValues.JSON;
 import static com.example.myapplication2.StaticValues.userThis;
 
 
-public class AddPortionActivity extends Activity {
+public class AddPortionActivity extends AppCompatActivity {
+
+    Portion portion = new Portion();
+    OkHttpClient client = new OkHttpClient();
+    ObjectMapper mapper = new ObjectMapper();
+
+
+
+    public void setMassWithDialog(double mass){
+        portion.setMass(mass);
+        Log.i("WWW", portion.toString());
+        String url = "http://10.0.2.2:8080/portion/add";
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+
+
+        String portionJson = null;
+        try {
+            portionJson = mapper.writeValueAsString(portion);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        RequestBody body = RequestBody.create(JSON, portionJson);
+        Log.i("WWW",  portionJson);
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            Log.i("WWW", response.body().string());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,12 +77,10 @@ public class AddPortionActivity extends Activity {
         final ListView listView  = findViewById(R.id.ingredientsList);
         Intent intent = getIntent();
 
-        final Ration ration = new Ration();
-        ration.setBrDinSup(intent.getStringExtra("brDinSup"));
-        ration.setDate(intent.getStringExtra("currentDate"));
-        ration.setUserID(userThis.getUserId());
+        portion.setBrDinSup(intent.getStringExtra("brDinSup"));
+        portion.setDate(intent.getStringExtra("currentDate"));
+        portion.setUserId(userThis.getUserId());
 
-        OkHttpClient client = new OkHttpClient();
         String url = "http://10.0.2.2:8080/ingredient/getAll";
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -54,7 +94,6 @@ public class AddPortionActivity extends Activity {
             String responseBody = response.body().string();
             System.out.println(responseBody);
 
-            ObjectMapper mapper = new ObjectMapper();
 
             final List<ReceivedIngredient> ingredientList =
                     mapper.readValue(responseBody,
@@ -69,11 +108,13 @@ public class AddPortionActivity extends Activity {
 
                                                 @Override
                                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                                    System.out.println("Works fine for now");
+                                                    Log.i("WWW","Works fine for now");
                                                     ReceivedIngredient chosenIngredient = ingredientList.get((int) id);
-                                                    ration.setIngredientID(chosenIngredient.getIngredientId());
-                                                    Log.i("WWW", ration.toString());
-
+                                                    portion.setIngredientId(chosenIngredient.getIngredientId());
+                                                    Log.i("WWW", portion.toString());
+                                                    FragmentManager manager = getSupportFragmentManager();
+                                                    SetMassDialog setMassDialog = new SetMassDialog();
+                                                    setMassDialog.show(manager, "getting mass");
                                                 }
                                             }
             );

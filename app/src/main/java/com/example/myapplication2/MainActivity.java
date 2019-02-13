@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.myapplication2.entity.User;
-import com.example.myapplication2.entity.dialog.LoginFailedDialog;
+import com.example.myapplication2.dialog.LoginFailedDialog;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

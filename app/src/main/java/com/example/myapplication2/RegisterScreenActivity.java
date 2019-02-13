@@ -1,11 +1,11 @@
 package com.example.myapplication2;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.myapplication2.entity.User;
-import com.example.myapplication2.filter.MinMaxFilterDouble;
+import com.example.myapplication2.filter.DecimalInputFilter;
 import com.example.myapplication2.filter.MinMaxFilterInt;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -30,7 +30,7 @@ import okhttp3.Response;
 
 import static com.example.myapplication2.StaticValues.JSON;
 
-public class RegisterScreenActivity extends Activity {
+public class RegisterScreenActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -40,11 +40,11 @@ public class RegisterScreenActivity extends Activity {
         final EditText login = findViewById(R.id.UserLogin);
         final EditText password = findViewById(R.id.UserPassword);
         final EditText weight = findViewById(R.id.UserWeight);
-        weight.setFilters(new InputFilter[]{ new MinMaxFilterDouble(1, 300)});
+        weight.setFilters(new InputFilter[]{ new DecimalInputFilter()});
         final EditText height = findViewById(R.id.UserHeight);
-        height.setFilters(new InputFilter[]{ new MinMaxFilterDouble(1, 250)});
+        height.setFilters(new InputFilter[]{ new DecimalInputFilter()});
         final EditText age = findViewById(R.id.UserAge);
-        height.setFilters(new InputFilter[]{ new MinMaxFilterInt(1, 150)});
+        age.setFilters(new InputFilter[]{ new MinMaxFilterInt(1, 150)});
 
         List<String> genderOptions =  new ArrayList<String>();
         genderOptions.add("MALE");
